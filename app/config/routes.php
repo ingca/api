@@ -28,6 +28,7 @@
  */
 
     Router::connect('/api/bi_categories_getall', array('controller' => 'api', 'action' => 'bi_categories_getall'));
+    Router::connect('/api/bi_description_getall', array('controller' => 'api', 'action' => 'bi_description_getall'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

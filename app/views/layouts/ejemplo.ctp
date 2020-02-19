@@ -11,47 +11,27 @@
 <body>
 
 <div id="div1" class="container">
-  <h1>My First Bootstrap Page1</h1>
-  <p>This is some text.</p>
+ <input type="button" onclick="get_categories('div1')">
 </div>
 
 <div id="div2" class="container">
-  <h1>My First Bootstrap Page2</h1>
-  <p>This is some text.</p>
+<input type="button" onclick="get_categories('div2')">
 </div>
 
 <script>
-    $(document).ready(function()
-{
-    //$("#div2").hide();
     var url = "http://localhost/";
-    get_categories();
-    
-    function get_categories()
-    {
+    function get_categories(parameter)
+{
         $.ajax({
         url     : url+"api/bi_categories_getall",
         type    : "get",
         success : (function (data) {
             $.each( data, function( key, value) {
-                if(value.BusinessCategories.name =="Restaurante"){
-                    $("#div1").append("<p>"+value.BusinessCategories.name+"</p>");
-                }
-                else if(value.BusinessCategories.name =="Gym"){
-                    $("#div2").append("<p>"+value.BusinessCategories.name+"</p>");
-                }
-                //console.log(value.BusinessCategories.name);
+                    $("#"+parameter+"").append(" "+value.BusinessCategories.name);
             });
         })
     });
-    }
 }
-
-
-//manipular los objetos, cuando es con # es por ID, cuando es por . (punto) es por clase 
-//append te pone la informacion a aparti de, y html te la reemplaza
-
-);
 </script>
 
 </body>
